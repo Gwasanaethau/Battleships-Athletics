@@ -2,7 +2,7 @@ class Board
   attr_reader :cells
 
   def initialize
-    @cells = {}
+    set_grid
   end
 
   def place(ship, coords)
@@ -10,6 +10,26 @@ class Board
   end
 
   def takes_hit(coords)
-    @cells[coords].hit
+    if cells[coords].nil? || cells[coords] == :miss
+      cells[coords] = :miss
+    else
+      cells[coords].hit
+    end
+  end
+
+  def won?
+    floating_ships.empty?
+  end
+
+  private
+
+  def set_grid
+    @cells = { 'A1' => nil }
+  end
+
+  def floating_ships
+    grid = @cells.values
+    grid.keep_if { |value| value.is_a? Ship }
+    grid.keep_if { |ship| !ship.sunk? }
   end
 end
