@@ -9,7 +9,7 @@ describe Board do
   end
 
   it 'can be hit when there is a ship present' do
-    shipx = double(:ship)
+    shipx = double(:shipx)
     allow(shipx).to receive(:hit)
     allow(shipx).to receive(:sunk?) { true }
     coords = 'A1'
@@ -18,10 +18,10 @@ describe Board do
     expect(subject.cells[coords]).to be_sunk
   end
 
-  xit 'it can miss when there is not a ship present' do
+  it 'it can miss when there is not a ship present' do
     coords = 'A1'
     subject.takes_hit(coords)
-    expect(subject.cells[coords]).to eq 'miss'
+    expect(subject.cells[coords]).to eq :miss
   end
 
   it 'has cells' do
