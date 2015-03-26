@@ -1,14 +1,11 @@
 require 'ship'
 
 describe Ship do
-  it 'we have a ship' do
-    expect(subject).to be_a Ship
-  end
-  it 'is not sunk when creates' do
+  it 'is not sunk when created' do
     expect(subject).not_to be_sunk
   end
 
-  it 'can be #hit' do
+  it 'can be hit' do
     expect(subject).to respond_to :hit
   end
 
