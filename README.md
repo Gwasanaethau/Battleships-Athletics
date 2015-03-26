@@ -43,3 +43,35 @@ As a player
 So that I know when to finish playing
 I would like to know when I have won or lost
 ```
+
+##Roadmap##
+
+We currently have the following road map for the BDD development process, focussing on the required behaviour from the user stories, building the simplist solution at each step.
+
+```
+1. A ship be placed in a cell, hit the ship and it sinks.
+
+2. A ship can be places in a location on the board, when the ship is hit it sinks.
+
+3. A ship can be places in a location on the board, when the ship is hit it sinks, if not hit a miss is reported.
+
+4. A ship can be places in a location on the board, when the ship is hit it sinks, if not hit a miss is recorded. The game can be declared won or not.
+
+5. A ship can be places in a location, when the ship is hit it sinks, if not hit a miss is recorded. A shot cannot be fired at a location more than once.
+MVP 1
+6. MVP 1 + a ship can have a size and a direction.
+MVP 2
+7. MVP2 + more than one ship can be in play at a time, ships cannot overlap.
+MVP 3
+```
+
+##Class Interfaces##
+
+Board
+- place(*ship, coordinate*)
+- takes_hit(coordinate)
+
+Ship
+- hit
+- sunk?
+
