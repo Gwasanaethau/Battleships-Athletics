@@ -70,6 +70,8 @@ MVP 3
 Board
 - place(*ship, coordinate*)
 - takes_hit(coordinate)
+- won?
+- cells
 
 Ship
 - hit
