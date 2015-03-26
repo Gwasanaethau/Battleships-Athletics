@@ -1,8 +1,9 @@
 class Board
+  DEFAULT_GRID = { 'A1' => nil }
   attr_reader :cells
 
   def initialize
-    @cells = {}
+    @cells = DEFAULT_GRID
   end
 
   def place(ship, coords)
@@ -10,6 +11,11 @@ class Board
   end
 
   def takes_hit(coords)
-    @cells[coords].hit
+    if cells[coords].nil? || cells[coords] == 'miss'
+      cells[coords] = 'miss'
+    else
+      cells[coords].hit
+    end
   end
 end
+
