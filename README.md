@@ -51,15 +51,18 @@ We currently have the following road map for the BDD development process, focuss
 ```
 1. A ship be placed in a cell, hit the ship and it sinks.
 
-2. A ship can be places in a location on the board, when the ship is hit it sinks.
+2. A ship can be placed in a location on the board, when the ship is hit it sinks.
 
-3. A ship can be places in a location on the board, when the ship is hit it sinks, if not hit a miss is reported.
+3. A ship can be placed in a location on the board, when the ship is hit it sinks, if not hit a miss is reported.
 
-4. A ship can be places in a location on the board, when the ship is hit it sinks, if not hit a miss is recorded. The game can be declared won or not.
+4. A ship can be placed in a location on the board, when the ship is hit it sinks, if not hit a miss is recorded. The game can be declared won or not.
 
-5. A ship can be places in a location, when the ship is hit it sinks, if not hit a miss is recorded. A shot cannot be fired at a location more than once.
+5. A ship can be placed in a location, when the ship is hit it sinks, if not hit a miss is recorded. A shot cannot be fired at a location more than once.
+
 MVP 1
-6. MVP 1 + a ship can have a size and a direction.
+6. MVP 1 + the board can have a set grid size.
+
+7. MVP 1 + the board can have a set grid size + a ship can have a size and a direction.
 MVP 2
 7. MVP2 + more than one ship can be in play at a time, ships cannot overlap.
 MVP 3
