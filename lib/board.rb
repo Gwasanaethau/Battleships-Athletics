@@ -6,6 +6,7 @@ class Board
   end
 
   def place(ship, coords)
+    fail 'Not on the board' unless cells.key?(coords)
     cells[coords] = ship
   end
 

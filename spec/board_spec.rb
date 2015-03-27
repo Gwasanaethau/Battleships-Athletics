@@ -10,6 +10,11 @@ describe Board do
     expect(subject.cells[coords]).to equal ship
   end
 
+  it 'must place a ship on the board' do
+    wrong_coords = 'Z99'
+    expect { subject.place(ship, wrong_coords) }.to raise_error 'Not on the board'
+  end
+
   it 'can be hit when there is a ship present' do
     subject.place(ship, coords)
     subject.takes_hit(coords)
