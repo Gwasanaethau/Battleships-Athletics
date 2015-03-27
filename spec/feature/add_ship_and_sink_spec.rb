@@ -21,6 +21,17 @@ feature 'a ship can be placed on a board, hit the ship and it sinks' do
     expect(board.cells[coords]).to eq :miss
   end
 
+  scenario 'cannot fire at a cell with ship that has already been hit' do
+    board.place(ship, coords)
+    board.takes_hit(coords)
+    expect { board.takes_hit(coords) }.to raise_error "Ship already hit"
+  end
+
+  scenario 'cannot fire at a missed cell that has already been hit' do
+    board.takes_hit(coords)
+    expect { board.takes_hit(coords) }.to raise_error "Cell already hit"
+  end
+
   scenario 'the game is won' do
     board.place(ship, coords)
     board.takes_hit(coords)
