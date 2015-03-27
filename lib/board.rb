@@ -6,15 +6,14 @@ class Board
   end
 
   def place(ship, coords)
-    @cells[coords] = ship
+    cells[coords] = ship
   end
 
   def takes_hit(coords)
-    if cells[coords].nil? || cells[coords] == :miss
-      cells[coords] = :miss
-    else
-      cells[coords].hit
-    end
+    fail 'Cell already hit' if cells[coords] == :miss
+    return cells[coords] = :miss if cells[coords].nil?
+    fail 'Ship already hit' if cells[coords].sunk?
+    cells[coords].hit
   end
 
   def won?
