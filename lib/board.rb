@@ -1,8 +1,10 @@
 class Board
+  ALPHABET = "ABCDEFGHI"
   attr_reader :cells
 
-  def initialize
-    set_grid
+  def initialize(side_length)
+    @cells = {}
+    set_grid(side_length)
   end
 
   def place(ship, coords)
@@ -23,8 +25,12 @@ class Board
 
   private
 
-  def set_grid
-    @cells = { 'A1' => nil }
+  def set_grid(side_length)
+    (1..side_length).each do |number|
+      (0...side_length).each do |letter|
+        @cells["#{ALPHABET[letter]}#{number}"] = nil
+      end
+    end
   end
 
   def floating_ships

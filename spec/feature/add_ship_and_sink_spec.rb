@@ -2,8 +2,14 @@ require 'capybara/rspec'
 
 feature 'a ship can be placed on a board, hit the ship and it sinks' do
   let(:ship) { Ship.new }
-  let(:board) { Board.new }
+  let(:board) { Board.new(2) }
   let(:coords) { 'A1' }
+
+  scenario 'a board can be created to a specific size' do
+    side_length = 2
+    board = Board.new(side_length)
+    expect(board.cells.length).to eq side_length**2
+  end
 
   scenario 'place ship on board' do
     board.place(ship, coords)
