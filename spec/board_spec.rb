@@ -1,10 +1,17 @@
 require 'board'
 
 describe Board do
+  SIDE_LENGTH = 2
+  let(:subject) { Board.new(SIDE_LENGTH) }
   let(:ship) { double(:ship) }
   let(:coords) { 'A1' }
   before(:each) { allow(ship).to receive(:hit) }
   before(:each) { allow(ship).to receive(:sunk?) { false } }
+
+  it 'can be created to a specific size' do
+    expect(subject.cells.length).to eq SIDE_LENGTH**2
+  end
+
   it 'can place a ship in cells' do
     subject.place(ship, coords)
     expect(subject.cells[coords]).to equal ship
